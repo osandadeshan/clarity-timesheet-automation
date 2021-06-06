@@ -28,7 +28,7 @@ This is a Java Swing Application used to automate the ClarityPPM timesheet submi
 9. Now, to convert the script to an executable file, Right-click on the saved file and click "***Compile Script***"
 10. You will see an executable file has been created
 11. Navigate to the project home directory
-12. Double-click on "***building-timesheet-submission-app.bat***"
+12. Double-click on "***build-timesheet-submission-app.bat***"
 13. Double-click on "***launch-app.vbs***"
 14. Add your time records using the GUI
 15. Click on "***Submit***" button

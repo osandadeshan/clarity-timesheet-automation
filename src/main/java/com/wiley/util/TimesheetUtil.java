@@ -1,13 +1,18 @@
 package com.wiley.util;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.time.Instant;
+import java.time.Duration;
 import java.util.Properties;
 
 import static com.wiley.Constants.CONFIG_PROPERTY_FILE_PATH;
-import static java.time.temporal.ChronoUnit.SECONDS;
+import static com.wiley.Constants.EXPLICIT_WAIT_TIMEOUT;
 
 /**
  * Project Name    : clarity-timesheet-automation
@@ -32,13 +37,17 @@ public class TimesheetUtil {
         return propertyValue;
     }
 
-    public static void sleep(String reason) {
-        Instant waitEndTime = Instant.now().plus(5, SECONDS);
-        while (Instant.now().isBefore(waitEndTime)) {
-            Instant oneSecondAfterNowTime = Instant.now().plus(1, SECONDS);
-            while (Instant.now().isBefore(oneSecondAfterNowTime)) {
-                System.out.println(reason);
-            }
+    public static void waitAndClick(WebDriver driver, By by) {
+        new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT_TIMEOUT)).until(ExpectedConditions.elementToBeClickable(by));
+        driver.findElement(by).click();
+    }
+
+    public static void sleep(int timeOutInSeconds, String reason) {
+        try {
+            System.out.println(reason);
+            Thread.sleep(timeOutInSeconds * 1000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }

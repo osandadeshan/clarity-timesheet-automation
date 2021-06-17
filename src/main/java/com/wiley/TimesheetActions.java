@@ -1,11 +1,16 @@
 package com.wiley;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static com.wiley.Constants.*;
 import static com.wiley.util.TimesheetUtil.sleep;
+import static com.wiley.util.TimesheetUtil.waitAndClick;
 
 /**
  * Project Name    : clarity-timesheet-automation
@@ -30,9 +35,15 @@ public class TimesheetActions {
         return this;
     }
 
-    protected TimesheetActions addProjectTask(String taskName) {
+    protected TimesheetActions addProjectTask(String projectName, String taskName) {
         driver.findElement(By.xpath("//button[contains(text(),'Add Task')]")).click();
-        driver.findElement(By.xpath("//input[@type='checkbox'][@title='" + taskName + "']")).click();
+        driver.findElement(By.name("ff_task_name")).sendKeys(taskName);
+        driver.findElement(By.name("ff_project_name")).sendKeys(projectName);
+        Select assignDropdown = new Select(driver.findElement(By.name("ff_assigned")));
+        assignDropdown.selectByVisibleText("All");
+        driver.findElement(By.name("applyFilter")).click();
+        sleep(SLEEP_TIMEOUT, WAIT_UNTIL_SEARCH_RESULTS_APPEARED);
+        waitAndClick(driver, By.xpath("//td[text()='" + projectName + "']/preceding::td//input[@type='checkbox'][1]"));
         driver.findElement(By.xpath("//div[@class='ppm_button_bar']/following::button[1]")).click();
         return this;
     }
@@ -65,9 +76,7 @@ public class TimesheetActions {
         driver.findElement(By.xpath("(//input[contains(@alt, 'Fri')])[2]")).sendKeys(fridayOooTime);
 
         driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
-        sleep(WAIT_UNTIL_TIMESHEET_SAVED);
-        driver.findElement(By.xpath("//button[normalize-space()='Submit for Approval']")).click();
-        sleep(WAIT_UNTIL_TIMESHEET_SUBMITTED);
+        waitAndClick(driver, By.xpath("//button[normalize-space()='Submit for Approval']"));
         setSubmissionStatus();
 
         return this;
@@ -78,11 +87,11 @@ public class TimesheetActions {
     }
 
     private void setSubmissionStatus() {
-        WebElement filterButton = driver.findElement(By.xpath("//button[normalize-space()='Filter']"));
-        WebElement showAllButton = driver.findElement(By.xpath("//button[normalize-space()='Show All']"));
-        WebElement clearButton = driver.findElement(By.xpath("//button[normalize-space()='Clear']"));
-
-        submissionStatus = !(filterButton.isDisplayed() && showAllButton.isDisplayed() && clearButton.isDisplayed())
-                ? SUBMISSION_FAILED : SUBMISSION_SUCCESS;
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT_TIMEOUT)).until(ExpectedConditions.titleIs(CLARITY_TIMESHEETS_PAGE_TITLE));
+            submissionStatus = SUBMISSION_SUCCESS;
+        } catch (Exception e) {
+            submissionStatus = SUBMISSION_FAILED;
+        }
     }
 }

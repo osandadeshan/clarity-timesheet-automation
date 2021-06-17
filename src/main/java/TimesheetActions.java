@@ -1,5 +1,3 @@
-package com.wiley;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -7,10 +5,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-
-import static com.wiley.Constants.*;
-import static com.wiley.util.TimesheetUtil.sleep;
-import static com.wiley.util.TimesheetUtil.waitAndClick;
 
 /**
  * Project Name    : clarity-timesheet-automation
@@ -42,8 +36,9 @@ public class TimesheetActions {
         Select assignDropdown = new Select(driver.findElement(By.name("ff_assigned")));
         assignDropdown.selectByVisibleText("All");
         driver.findElement(By.name("applyFilter")).click();
-        sleep(SLEEP_TIMEOUT, WAIT_UNTIL_SEARCH_RESULTS_APPEARED);
-        waitAndClick(driver, By.xpath("//td[text()='" + projectName + "']/preceding::td//input[@type='checkbox'][1]"));
+        TimesheetUtil.sleep(Constants.SLEEP_TIMEOUT, Constants.WAIT_UNTIL_SEARCH_RESULTS_APPEARED);
+        TimesheetUtil.waitAndClick(driver, By.xpath("//td[text()='" + projectName
+                + "']/preceding::td//input[@type='checkbox'][1]"));
         driver.findElement(By.xpath("//div[@class='ppm_button_bar']/following::button[1]")).click();
         return this;
     }
@@ -76,7 +71,7 @@ public class TimesheetActions {
         driver.findElement(By.xpath("(//input[contains(@alt, 'Fri')])[2]")).sendKeys(fridayOooTime);
 
         driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
-        waitAndClick(driver, By.xpath("//button[normalize-space()='Submit for Approval']"));
+        TimesheetUtil.waitAndClick(driver, By.xpath("//button[normalize-space()='Submit for Approval']"));
         setSubmissionStatus();
 
         return this;
@@ -88,10 +83,11 @@ public class TimesheetActions {
 
     private void setSubmissionStatus() {
         try {
-            new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT_TIMEOUT)).until(ExpectedConditions.titleIs(CLARITY_TIMESHEETS_PAGE_TITLE));
-            submissionStatus = SUBMISSION_SUCCESS;
+            new WebDriverWait(driver, Duration.ofSeconds(Constants.EXPLICIT_WAIT_TIMEOUT))
+                    .until(ExpectedConditions.titleIs(Constants.CLARITY_TIMESHEETS_PAGE_TITLE));
+            submissionStatus = Constants.SUBMISSION_SUCCESS;
         } catch (Exception e) {
-            submissionStatus = SUBMISSION_FAILED;
+            submissionStatus = Constants.SUBMISSION_FAILED;
         }
     }
 }

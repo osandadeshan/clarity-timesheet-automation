@@ -1,5 +1,3 @@
-package com.wiley;
-
 /**
  * Project Name    : clarity-timesheet-automation
  * Developer       : Osanda Deshan

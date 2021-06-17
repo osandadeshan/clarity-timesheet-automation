@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <mainClass>com.wiley.TimesheetApp</mainClass>
+        <mainClass>TimesheetApp</mainClass>
     </properties>
 
     <build>

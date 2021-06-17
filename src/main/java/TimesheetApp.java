@@ -1,11 +1,5 @@
-package com.wiley;
-
 import javax.swing.*;
 import java.awt.*;
-
-import static com.wiley.Constants.*;
-import static com.wiley.util.Driver.*;
-import static com.wiley.util.TimesheetUtil.getPropertyValue;
 
 /**
  * Project Name    : clarity-timesheet-automation
@@ -20,7 +14,7 @@ public class TimesheetApp {
 
     private final JFrame frame;
     private final JPanel panel = new JPanel();
-    private final Font font = new Font(FONT_NAME, Font.PLAIN, 18);
+    private final Font font = new Font(Constants.FONT_NAME, Font.PLAIN, 18);
     private JTextField txtProjectName;
     private JTextField txtTaskName;
     private JTextField txtMondayProjectHours;
@@ -35,12 +29,12 @@ public class TimesheetApp {
     private JTextField txtFridayOooHours;
 
     public TimesheetApp() {
-        frame = new JFrame(APP_NAME);
+        frame = new JFrame(Constants.APP_NAME);
         frame.setSize(710, 440);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
-        frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getPropertyValue(APP_ICON_PATH)));
+        frame.setIconImage(Toolkit.getDefaultToolkit().getImage(TimesheetUtil.getPropertyValue(Constants.APP_ICON_PATH)));
         frame.add(panel);
         panel.setLayout(null);
 
@@ -68,7 +62,7 @@ public class TimesheetApp {
     }
 
     private void setProjectNameRow() {
-        JLabel lblProjectName = new JLabel(LBL_PROJECT_NAME);
+        JLabel lblProjectName = new JLabel(Constants.LBL_PROJECT_NAME);
         lblProjectName.setBounds(10, 20, 300, 25);
         lblProjectName.setFont(font);
         panel.add(lblProjectName);
@@ -76,12 +70,12 @@ public class TimesheetApp {
         txtProjectName = new JTextField();
         txtProjectName.setBounds(200, 20, 500, 25);
         txtProjectName.setFont(font);
-        txtProjectName.setText(getPropertyValue(PROJECT_NAME));
+        txtProjectName.setText(TimesheetUtil.getPropertyValue(Constants.PROJECT_NAME));
         panel.add(txtProjectName);
     }
 
     private void setTaskNameRow() {
-        JLabel lblTaskName = new JLabel(LBL_TASK_NAME);
+        JLabel lblTaskName = new JLabel(Constants.LBL_TASK_NAME);
         lblTaskName.setBounds(10, 60, 300, 25);
         lblTaskName.setFont(font);
         panel.add(lblTaskName);
@@ -89,24 +83,24 @@ public class TimesheetApp {
         txtTaskName = new JTextField();
         txtTaskName.setBounds(200, 60, 500, 25);
         txtTaskName.setFont(font);
-        txtTaskName.setText(getPropertyValue(TASK_NAME));
+        txtTaskName.setText(TimesheetUtil.getPropertyValue(Constants.TASK_NAME));
         panel.add(txtTaskName);
     }
 
     private void setHoursTypesHeadingRow() {
-        JLabel lblProjectHours = new JLabel(LBL_PROJECT_HOURS);
+        JLabel lblProjectHours = new JLabel(Constants.LBL_PROJECT_HOURS);
         lblProjectHours.setBounds(200, 120, 150, 25);
         lblProjectHours.setFont(font);
         panel.add(lblProjectHours);
 
-        JLabel lblOooHours = new JLabel(LBL_OOO_HOURS);
+        JLabel lblOooHours = new JLabel(Constants.LBL_OOO_HOURS);
         lblOooHours.setBounds(400, 120, 200, 25);
         lblOooHours.setFont(font);
         panel.add(lblOooHours);
     }
 
     private void setMondayRow() {
-        JLabel lblMonday = new JLabel(LBL_MONDAY);
+        JLabel lblMonday = new JLabel(Constants.LBL_MONDAY);
         lblMonday.setBounds(10, 160, 200, 25);
         lblMonday.setFont(font);
         panel.add(lblMonday);
@@ -123,7 +117,7 @@ public class TimesheetApp {
     }
 
     private void setTuesdayRow() {
-        JLabel lblTuesday = new JLabel(LBL_TUESDAY);
+        JLabel lblTuesday = new JLabel(Constants.LBL_TUESDAY);
         lblTuesday.setBounds(10, 200, 200, 25);
         lblTuesday.setFont(font);
         panel.add(lblTuesday);
@@ -140,7 +134,7 @@ public class TimesheetApp {
     }
 
     private void setWednesdayRow() {
-        JLabel lblWednesday = new JLabel(LBL_WEDNESDAY);
+        JLabel lblWednesday = new JLabel(Constants.LBL_WEDNESDAY);
         lblWednesday.setBounds(10, 240, 200, 25);
         lblWednesday.setFont(font);
         panel.add(lblWednesday);
@@ -157,7 +151,7 @@ public class TimesheetApp {
     }
 
     private void setThursdayRow() {
-        JLabel lblThursday = new JLabel(LBL_THURSDAY);
+        JLabel lblThursday = new JLabel(Constants.LBL_THURSDAY);
         lblThursday.setBounds(10, 280, 200, 25);
         lblThursday.setFont(font);
         panel.add(lblThursday);
@@ -174,7 +168,7 @@ public class TimesheetApp {
     }
 
     private void setFridayRow() {
-        JLabel lblFriday = new JLabel(LBL_FRIDAY);
+        JLabel lblFriday = new JLabel(Constants.LBL_FRIDAY);
         lblFriday.setBounds(10, 320, 200, 25);
         lblFriday.setFont(font);
         panel.add(lblFriday);
@@ -191,24 +185,24 @@ public class TimesheetApp {
     }
 
     private void setDefaultValues() {
-        txtMondayProjectHours.setText(DEFAULT_PROJECT_HOURS);
-        txtMondayOooHours.setText(DEFAULT_OOO_HOURS);
+        txtMondayProjectHours.setText(Constants.DEFAULT_PROJECT_HOURS);
+        txtMondayOooHours.setText(Constants.DEFAULT_OOO_HOURS);
 
-        txtTuesdayProjectHours.setText(DEFAULT_PROJECT_HOURS);
-        txtTuesdayOooHours.setText(DEFAULT_OOO_HOURS);
+        txtTuesdayProjectHours.setText(Constants.DEFAULT_PROJECT_HOURS);
+        txtTuesdayOooHours.setText(Constants.DEFAULT_OOO_HOURS);
 
-        txtWednesdayProjectHours.setText(DEFAULT_PROJECT_HOURS);
-        txtWednesdayOooHours.setText(DEFAULT_OOO_HOURS);
+        txtWednesdayProjectHours.setText(Constants.DEFAULT_PROJECT_HOURS);
+        txtWednesdayOooHours.setText(Constants.DEFAULT_OOO_HOURS);
 
-        txtThursdayProjectHours.setText(DEFAULT_PROJECT_HOURS);
-        txtThursdayOooHours.setText(DEFAULT_OOO_HOURS);
+        txtThursdayProjectHours.setText(Constants.DEFAULT_PROJECT_HOURS);
+        txtThursdayOooHours.setText(Constants.DEFAULT_OOO_HOURS);
 
-        txtFridayProjectHours.setText(DEFAULT_HALF_DAY_HOURS);
-        txtFridayOooHours.setText(DEFAULT_HALF_DAY_HOURS);
+        txtFridayProjectHours.setText(Constants.DEFAULT_HALF_DAY_HOURS);
+        txtFridayOooHours.setText(Constants.DEFAULT_HALF_DAY_HOURS);
     }
 
     private void setSubmitButton() {
-        JButton btnSubmit = new JButton(BTN_SUBMIT);
+        JButton btnSubmit = new JButton(Constants.BTN_SUBMIT);
         btnSubmit.setBounds(380, 370, 100, 25);
         btnSubmit.setFont(font);
 
@@ -216,9 +210,9 @@ public class TimesheetApp {
             String submissionStatus;
 
             try {
-                setUpDriver();
+                Driver.setUpDriver();
 
-                submissionStatus = new TimesheetActions(getDriver())
+                submissionStatus = new TimesheetActions(Driver.getDriver())
                         .selectFirstTimeEntry()
                         .addProjectTask(txtProjectName.getText(), txtTaskName.getText())
                         .addOutOfOfficeTask()
@@ -230,21 +224,22 @@ public class TimesheetApp {
                         .getSubmissionStatus();
 
             } catch (Exception ex) {
-                submissionStatus = SUBMISSION_FAILED;
+                submissionStatus = Constants.SUBMISSION_FAILED;
             }
 
             TimesheetSubmissionStatusDialog dialog = new TimesheetSubmissionStatusDialog(frame,
-                    submissionStatus.equals(SUBMISSION_SUCCESS) ? SUCCESS : FAILED, submissionStatus);
+                    submissionStatus.equals(Constants.SUBMISSION_SUCCESS)
+                            ? Constants.SUCCESS : Constants.FAILED, submissionStatus);
             dialog.setSize(400, 120);
 
-            closeDriver();
+            Driver.closeDriver();
         });
 
         panel.add(btnSubmit);
     }
 
     private void setResetButton() {
-        JButton btnExit = new JButton(BTN_RESET);
+        JButton btnExit = new JButton(Constants.BTN_RESET);
         btnExit.setBounds(490, 370, 100, 25);
         btnExit.setFont(font);
         btnExit.addActionListener(e -> setDefaultValues());
@@ -252,7 +247,7 @@ public class TimesheetApp {
     }
 
     private void setExitButton() {
-        JButton btnExit = new JButton(BTN_EXIT);
+        JButton btnExit = new JButton(Constants.BTN_EXIT);
         btnExit.setBounds(600, 370, 100, 25);
         btnExit.setFont(font);
         btnExit.addActionListener(e -> System.exit(0));

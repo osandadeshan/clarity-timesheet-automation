@@ -1,13 +1,9 @@
-package com.wiley.util;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.IOException;
 
-import static com.wiley.Constants.*;
-import static com.wiley.util.TimesheetUtil.getPropertyValue;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**
@@ -30,12 +26,12 @@ public class Driver {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT_TIMEOUT, SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIMEOUT, SECONDS);
-        driver.get(getPropertyValue(CLARITY_TIMESHEET_URL));
-        if (Boolean.parseBoolean(getPropertyValue(IS_BASIC_AUTHENTICATION_NEEDED))) {
+        driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIMEOUT, SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(Constants.PAGE_LOAD_TIMEOUT, SECONDS);
+        driver.get(TimesheetUtil.getPropertyValue(Constants.CLARITY_TIMESHEET_URL));
+        if (Boolean.parseBoolean(TimesheetUtil.getPropertyValue(Constants.IS_BASIC_AUTHENTICATION_NEEDED))) {
             try {
-                Runtime.getRuntime().exec(getPropertyValue(AUTOIT_EXECUTABLE_PATH));
+                Runtime.getRuntime().exec(TimesheetUtil.getPropertyValue(Constants.AUTOIT_EXECUTABLE_PATH));
             } catch (IOException e) {
                 e.printStackTrace();
             }

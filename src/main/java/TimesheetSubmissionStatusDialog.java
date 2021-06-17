@@ -1,10 +1,5 @@
-package com.wiley;
-
 import javax.swing.*;
 import java.awt.*;
-
-import static com.wiley.Constants.*;
-import static com.wiley.util.TimesheetUtil.getPropertyValue;
 
 /**
  * Project Name    : clarity-timesheet-automation
@@ -25,13 +20,13 @@ public class TimesheetSubmissionStatusDialog extends JDialog {
         getContentPane().add(messagePane);
 
         JPanel jPanel = new JPanel();
-        JButton dialogBoxBtnOk = new JButton(SUBMISSION_DIALOG_BTN_OK);
+        JButton dialogBoxBtnOk = new JButton(Constants.SUBMISSION_DIALOG_BTN_OK);
         jPanel.add(dialogBoxBtnOk);
 
-        if (title.equals(SUCCESS)) {
+        if (title.equals(Constants.SUCCESS)) {
             dialogBoxBtnOk.addActionListener(x -> System.exit(0));
         } else {
-            setIconImage(Toolkit.getDefaultToolkit().getImage(getPropertyValue(ERROR_ICON_PATH)));
+            setIconImage(Toolkit.getDefaultToolkit().getImage(TimesheetUtil.getPropertyValue(Constants.ERROR_ICON_PATH)));
             dialogBoxBtnOk.addActionListener(x -> dispose());
         }
 

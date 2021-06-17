@@ -2,7 +2,7 @@
 ## Introduction
 This is a Java Swing Application used to automate the ClarityPPM timesheet submission.
 
-[![Clarity Timesheet Submission Application](https://user-images.githubusercontent.com/9147189/120097946-d335e080-c150-11eb-91ec-231a110c4000.png "Clarity Timesheet Submission Application")](https://user-images.githubusercontent.com/9147189/120097946-d335e080-c150-11eb-91ec-231a110c4000.png "Clarity Timesheet Submission Application")
+[![Clarity Timesheet Submission Application](https://user-images.githubusercontent.com/9147189/122388261-56e33000-cf8d-11eb-857e-fd2cba77ad08.png "Clarity Timesheet Submission Application")](https://user-images.githubusercontent.com/9147189/122388261-56e33000-cf8d-11eb-857e-fd2cba77ad08.png "Clarity Timesheet Submission Application")
 
 ## Prerequisites
 * Java 8
@@ -33,4 +33,4 @@ This is a Java Swing Application used to automate the ClarityPPM timesheet submi
 14. Add your time records using the GUI
 15. Click on "***Submit***" button
 
-![Successful Submission](https://user-images.githubusercontent.com/9147189/120162428-fecece80-c215-11eb-9a95-7361c5290d87.PNG)
+![Successful Submission](https://user-images.githubusercontent.com/9147189/122388106-2dc29f80-cf8d-11eb-8b65-aaf76b6fbcbb.png)

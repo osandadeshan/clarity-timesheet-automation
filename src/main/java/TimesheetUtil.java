@@ -1,5 +1,3 @@
-package com.wiley.util;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,9 +8,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.time.Duration;
 import java.util.Properties;
-
-import static com.wiley.Constants.CONFIG_PROPERTY_FILE_PATH;
-import static com.wiley.Constants.EXPLICIT_WAIT_TIMEOUT;
 
 /**
  * Project Name    : clarity-timesheet-automation
@@ -27,7 +22,7 @@ public class TimesheetUtil {
 
     public static String getPropertyValue(String propertyName) {
         String propertyValue = null;
-        try (InputStream input = new FileInputStream(CONFIG_PROPERTY_FILE_PATH)) {
+        try (InputStream input = new FileInputStream(Constants.CONFIG_PROPERTY_FILE_PATH)) {
             Properties prop = new Properties();
             prop.load(input);
             propertyValue = prop.getProperty(propertyName);
@@ -38,7 +33,8 @@ public class TimesheetUtil {
     }
 
     public static void waitAndClick(WebDriver driver, By by) {
-        new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT_TIMEOUT)).until(ExpectedConditions.elementToBeClickable(by));
+        new WebDriverWait(driver, Duration.ofSeconds(Constants.EXPLICIT_WAIT_TIMEOUT))
+                .until(ExpectedConditions.elementToBeClickable(by));
         driver.findElement(by).click();
     }
 

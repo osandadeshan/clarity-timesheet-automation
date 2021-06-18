@@ -21,7 +21,7 @@ public class Constants {
 
     // Wait timeouts
     public static final int IMPLICIT_WAIT_TIMEOUT = 120;
-    public static final int EXPLICIT_WAIT_TIMEOUT = 20;
+    public static final int EXPLICIT_WAIT_TIMEOUT = 60;
     public static final int PAGE_LOAD_TIMEOUT = 120;
     public static final int SLEEP_TIMEOUT = 5;
 

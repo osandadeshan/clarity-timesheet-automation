@@ -1,4 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -17,7 +18,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class Driver {
 
-    private static ChromeDriver driver;
+    private static WebDriver driver;
 
     public static void setUpDriver() {
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -29,16 +30,14 @@ public class Driver {
         driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIMEOUT, SECONDS);
         driver.manage().timeouts().pageLoadTimeout(Constants.PAGE_LOAD_TIMEOUT, SECONDS);
         driver.get(TimesheetUtil.getPropertyValue(Constants.CLARITY_TIMESHEET_URL));
-        if (Boolean.parseBoolean(TimesheetUtil.getPropertyValue(Constants.IS_BASIC_AUTHENTICATION_NEEDED))) {
-            try {
-                Runtime.getRuntime().exec(TimesheetUtil.getPropertyValue(Constants.AUTOIT_EXECUTABLE_PATH));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            Runtime.getRuntime().exec(TimesheetUtil.getPropertyValue(Constants.AUTOIT_EXECUTABLE_PATH));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    public static ChromeDriver getDriver() {
+    public static WebDriver getDriver() {
         return driver;
     }
 

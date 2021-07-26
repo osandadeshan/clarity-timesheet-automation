@@ -32,5 +32,6 @@ This is a Java Swing Application used to automate the ClarityPPM timesheet submi
 13. Double-click on "***launch-app.vbs***"
 14. Add your time records using the GUI
 15. Click on "***Submit***" button
+16. Wait for the confirmation dialog box
 
 ![Successful Submission](https://user-images.githubusercontent.com/9147189/122388106-2dc29f80-cf8d-11eb-8b65-aaf76b6fbcbb.png)

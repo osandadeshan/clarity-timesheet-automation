@@ -1,3 +1,4 @@
 /.idea
 /target
 /clarity-timesheet-automation.iml
+/src/main/resources/credentials_extension.zip

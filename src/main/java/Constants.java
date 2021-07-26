@@ -13,8 +13,6 @@ public class Constants {
     public static final String CONFIG_PROPERTY_FILE_PATH = "./src/main/resources/config.properties";
     public static final String APP_ICON_PATH = "appIconPath";
     public static final String ERROR_ICON_PATH = "errorIconPath";
-    public static final String IS_BASIC_AUTHENTICATION_NEEDED = "isBasicAuthNeeded";
-    public static final String AUTOIT_EXECUTABLE_PATH = "autoItExecutablePath";
     public static final String CLARITY_TIMESHEET_URL = "clarityTimesheetUrl";
     public static final String PROJECT_NAME = "projectName";
     public static final String TASK_NAME = "taskName";
@@ -26,7 +24,7 @@ public class Constants {
     public static final int SLEEP_TIMEOUT = 5;
 
     // Page titles
-    public static final String CLARITY_TIMESHEETS_PAGE_TITLE = "Clarity PPM :: Timesheets";
+    public static final String CLARITY_TIMESHEET_PAGE_TITLE = "Clarity PPM :: Timesheets";
 
     // Sleep reasons
     public static final String WAIT_UNTIL_SEARCH_RESULTS_APPEARED = "Search results are being appearing ....";
@@ -52,7 +50,6 @@ public class Constants {
     public static final String BTN_SUBMIT = "Submit";
     public static final String BTN_EXIT = "Exit";
     public static final String BTN_RESET = "Reset";
-    public static final String SUBMISSION_DIALOG_BOX_TITLE = "Submission Status";
     public static final String SUBMISSION_DIALOG_BTN_OK = "OK";
 
     // Default values

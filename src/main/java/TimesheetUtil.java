@@ -3,11 +3,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 /**
  * Project Name    : clarity-timesheet-automation
@@ -45,5 +47,37 @@ public class TimesheetUtil {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public static File generateChromeBasicAuthExtension() {
+        List<File> files = new ArrayList<>();
+        files.add(new File("./src/main/resources/authHandler.js"));
+        files.add(new File("./src/main/resources/manifest.json"));
+
+        File zipFile = new File("./src/main/resources/credentials_extension.zip");
+
+        byte[] buf = new byte[1024];
+
+        try {
+            ZipOutputStream zipOutputStream = new ZipOutputStream(new FileOutputStream(zipFile));
+
+            for (File file : files) {
+                FileInputStream in = new FileInputStream(file.getCanonicalFile());
+                zipOutputStream.putNextEntry(new ZipEntry(file.getName()));
+                int len;
+                while ((len = in.read(buf)) > 0) {
+                    zipOutputStream.write(buf, 0, len);
+                }
+                zipOutputStream.closeEntry();
+                in.close();
+            }
+
+            zipOutputStream.close();
+
+        } catch (IOException ex) {
+            System.err.println("Creating 'credentials_extension.zip' is failed!\n" + ex.getMessage());
+        }
+
+        return zipFile;
     }
 }

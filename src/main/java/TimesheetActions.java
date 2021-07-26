@@ -1,5 +1,5 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,10 +17,10 @@ import java.time.Duration;
 
 public class TimesheetActions {
 
-    private final ChromeDriver driver;
+    private final WebDriver driver;
     private String submissionStatus;
 
-    public TimesheetActions(ChromeDriver driver) {
+    public TimesheetActions(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -84,7 +84,7 @@ public class TimesheetActions {
     private void setSubmissionStatus() {
         try {
             new WebDriverWait(driver, Duration.ofSeconds(Constants.EXPLICIT_WAIT_TIMEOUT))
-                    .until(ExpectedConditions.titleIs(Constants.CLARITY_TIMESHEETS_PAGE_TITLE));
+                    .until(ExpectedConditions.titleIs(Constants.CLARITY_TIMESHEET_PAGE_TITLE));
             submissionStatus = Constants.SUBMISSION_SUCCESS;
         } catch (Exception e) {
             submissionStatus = Constants.SUBMISSION_FAILED;

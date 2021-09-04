@@ -4,6 +4,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
@@ -31,7 +32,8 @@ public class Driver {
         driver.manage().timeouts().pageLoadTimeout(Constants.PAGE_LOAD_TIMEOUT, SECONDS);
         driver.get(TimesheetUtil.getPropertyValue(Constants.CLARITY_TIMESHEET_URL));
         try {
-            Runtime.getRuntime().exec(TimesheetUtil.getPropertyValue(Constants.AUTOIT_EXECUTABLE_PATH));
+            Runtime.getRuntime()
+                    .exec(Objects.requireNonNull(Driver.class.getResource(Constants.AUTOIT_EXECUTABLE_NAME)).getPath());
         } catch (IOException e) {
             e.printStackTrace();
         }

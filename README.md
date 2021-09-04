@@ -29,9 +29,10 @@ This is a Java Swing Application used to automate the ClarityPPM timesheet submi
 10. You will see an executable file has been created
 11. Navigate to the project home directory
 12. Double-click on "***build-timesheet-submission-app.bat***"
-13. Double-click on "***launch-app.vbs***"
-14. Add your time records using the GUI
-15. Click on "***Submit***" button
-16. Wait for the confirmation dialog box
+13. Navigate to "***<project_home_dir>/target***" 
+14. Double-click on "***clarity-timesheet-submission.exe***"
+15. Add your time records using the GUI
+16. Click on "***Submit***" button
+17. Wait for the confirmation dialog box
 
 ![Successful Submission](https://user-images.githubusercontent.com/9147189/122388106-2dc29f80-cf8d-11eb-8b65-aaf76b6fbcbb.png)

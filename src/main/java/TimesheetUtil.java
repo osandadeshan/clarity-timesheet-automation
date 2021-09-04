@@ -3,7 +3,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.Duration;
@@ -22,7 +21,8 @@ public class TimesheetUtil {
 
     public static String getPropertyValue(String propertyName) {
         String propertyValue = null;
-        try (InputStream input = new FileInputStream(Constants.CONFIG_PROPERTY_FILE_PATH)) {
+        try (InputStream input = TimesheetUtil.class.getClassLoader()
+                .getResourceAsStream(Constants.CONFIG_PROPERTY_FILE_NAME)) {
             Properties prop = new Properties();
             prop.load(input);
             propertyValue = prop.getProperty(propertyName);

@@ -10,10 +10,10 @@
 public class Constants {
 
     // Property file constants
-    public static final String CONFIG_PROPERTY_FILE_PATH = "./src/main/resources/config.properties";
-    public static final String APP_ICON_PATH = "appIconPath";
-    public static final String ERROR_ICON_PATH = "errorIconPath";
-    public static final String AUTOIT_EXECUTABLE_PATH = "autoItExecutablePath";
+    public static final String CONFIG_PROPERTY_FILE_NAME = "config.properties";
+    public static final String APP_ICON_NAME = "application.png";
+    public static final String ERROR_ICON_NAME = "error.png";
+    public static final String AUTOIT_EXECUTABLE_NAME = "autoIt.exe";
     public static final String CLARITY_TIMESHEET_URL = "clarityTimesheetUrl";
     public static final String PROJECT_NAME = "projectName";
     public static final String TASK_NAME = "taskName";

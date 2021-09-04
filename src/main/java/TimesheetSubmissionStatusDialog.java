@@ -26,7 +26,7 @@ public class TimesheetSubmissionStatusDialog extends JDialog {
         if (title.equals(Constants.SUCCESS)) {
             dialogBoxBtnOk.addActionListener(x -> System.exit(0));
         } else {
-            setIconImage(Toolkit.getDefaultToolkit().getImage(TimesheetUtil.getPropertyValue(Constants.ERROR_ICON_PATH)));
+            setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource(Constants.ERROR_ICON_NAME)));
             dialogBoxBtnOk.addActionListener(x -> dispose());
         }
 
@@ -35,5 +35,6 @@ public class TimesheetSubmissionStatusDialog extends JDialog {
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
+        setResizable(false);
     }
 }

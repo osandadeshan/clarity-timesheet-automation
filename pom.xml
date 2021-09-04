@@ -90,7 +90,7 @@
                                 <mainClass>${mainClass}</mainClass>
                                 <preCp>anything</preCp>
                             </classPath>
-                            <icon>res/app_icon.ico</icon>
+                            <icon>src/main/resources/app_icon.ico</icon>
                             <jre>
                                 <minVersion>1.6.0</minVersion>
                                 <jdkPreference>preferJre</jdkPreference>

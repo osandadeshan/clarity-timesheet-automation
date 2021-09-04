@@ -34,7 +34,7 @@ public class TimesheetApp {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
-        frame.setIconImage(Toolkit.getDefaultToolkit().getImage(TimesheetUtil.getPropertyValue(Constants.APP_ICON_PATH)));
+        frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource(Constants.APP_ICON_NAME)));
         frame.add(panel);
         panel.setLayout(null);
 

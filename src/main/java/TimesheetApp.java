@@ -197,8 +197,8 @@ public class TimesheetApp {
         txtThursdayProjectHours.setText(Constants.DEFAULT_PROJECT_HOURS);
         txtThursdayOooHours.setText(Constants.DEFAULT_OOO_HOURS);
 
-        txtFridayProjectHours.setText(Constants.DEFAULT_HALF_DAY_HOURS);
-        txtFridayOooHours.setText(Constants.DEFAULT_HALF_DAY_HOURS);
+        txtFridayProjectHours.setText(Constants.DEFAULT_PROJECT_HOURS);
+        txtFridayOooHours.setText(Constants.DEFAULT_OOO_HOURS);
     }
 
     private void setSubmitButton() {

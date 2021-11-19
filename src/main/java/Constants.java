@@ -56,5 +56,4 @@ public class Constants {
     // Default values
     public static final String DEFAULT_PROJECT_HOURS = "8";
     public static final String DEFAULT_OOO_HOURS = "0";
-    public static final String DEFAULT_HALF_DAY_HOURS = "4";
 }
